@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="Attribute" table="productval">
+
+  <id name="id" type="long" column="idProductVal" >
+   <generator class="increment"/>
+  </id>
+  <property name="avg" column="avgVal" />
+  <property name="min" column="minVal" />
+  <property name="max" column="maxVal" />
+  <property name="countryId" column="countryId" />
+  <property name="cityId" column="cityID" />
+  <property name="productId" column="ProductId" />
+
+  </class>
+   
+</hibernate-mapping>

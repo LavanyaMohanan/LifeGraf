@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="./style.css">
+<title>LifeGraf</title>
+
+
+
+</head>
+
+<body>
+
+ <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+  
+  function gup( name )
+	{
+	  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+	  var regexS = "[\\?&]"+name+"=([^&#]*)";
+	  var regex = new RegExp( regexS );
+	  var results = regex.exec( window.location.href );
+	  if( results == null )
+		return "";
+	  else
+		return results[1];
+	}
+  
+  
+    google.load('visualization', '1', {packages: ['geochart']});
+
+	var commodity = gup('commodity');
+	  
+	  var CA = {
+	   "mcdonald" : 7.57,
+	   "coke" : 1.76,
+	   "milk" : 2.00,
+	   "bread" : 2.42,
+	   "beer" : 3.13,
+	   "rent": 957,
+	   "transport": 2.69,
+	   "utility": 201,
+	   "nike": 97,
+	   "cinema": 11.75
+	    } ;
+		
+			 var CN = {
+	   "mcdonald" : 4.15,
+	   "coke" : 0.59,
+	   "milk" : 1.70,
+	   "bread" : 1.39,
+	   "beer" : 1.10,
+	   "rent": 461,
+	   "transport": 0.32,
+	   "utility": 29.64,
+	   "nike": 93.76,
+	   "cinema": 9.51
+	    } ;
+		
+				
+	   var IN = {
+	   "mcdonald" : 3.79,
+	   "coke" : 0.42,
+	   "milk" : 0.63,
+	   "bread" : 0.40,
+	   "beer" : 1.63,
+	   "rent": 176,
+	   "transport": 0.28,
+	   "utility": 36,
+	   "nike": 62,
+	   "cinema": 3.71
+	    } ;
+		
+				
+	   var US = {
+	   "mcdonald" : 6,
+	   "coke" : 1.5,
+	   "milk" : 1.14,
+	   "bread" : 2.31,
+	   "beer" : 3.16,
+	   "rent": 897,
+	   "transport": 1.94,
+	   "utility": 207,
+	   "nike": 81,
+	   "cinema": 9.5
+	    } ;
+		
+				
+	   var GB = {
+	   "mcdonald" : 7.90,
+	   "coke" : 1.95,
+	   "milk" : 1.5,
+	   "bread" : 1.75,
+	   "beer" : 4.5,
+	   "rent": 977,
+	   "transport": 3.5,
+	   "utility": 199,
+	   "nike": 94,
+	   "cinema": 11.75
+	    } ;
+	 
+	  
+
+    function drawVisualization() {
+      var data = new google.visualization.DataTable();
+      data.addRows(5);
+      data.addColumn('string', 'Country');
+      data.addColumn('number', 'Average Rent');
+      
+      //Average monthly rent
+      
+      var CanadaRent = 957;
+      var ChinaRent = 461;
+      var IndiaRent = 176;
+      var USRent = 897;
+      var UKRent = 977;
+      
+      data.setValue(0, 0, 'CA');
+      data.setValue(0, 1, CA[commodity]);
+      
+      data.setValue(1, 0, 'US');
+      data.setValue(1, 1, US[commodity]);
+      
+      data.setValue(2, 0, 'CN');
+      data.setValue(2, 1, CN[commodity]);
+      
+      data.setValue(3, 0, 'IN');
+      data.setValue(3, 1, IN[commodity]);
+      
+      data.setValue(4, 0, 'GB');
+      data.setValue(4, 1, GB[commodity]);
+      
+    
+      
+      var geochart = new google.visualization.GeoChart(
+          document.getElementById('commoditymap'));
+           google.visualization.events.addListener(geochart, 'regionClick', function(e) { 
+		     var rowindex = data.getFilteredRows([{column: 0, value: e.region}]); 
+		    var count = data.getValue(rowindex[0],1); 
+    if (count > 0) { 
+				location.href = "countrydata.html?country=" + e.region;
+    } 
+	else 
+	alert("hello");
+		   
+    });
+    
+      geochart.draw(data, {width: 800, height: 500});
+    }
+    
+    google.setOnLoadCallback(drawVisualization);
+  </script>
+  
+  <script type="text/javascript">
+
+function loadPage(form) {
+
+  var redirUrl = "visualization.html?commodity=";
+  location.href=redirUrl + form.select.options[form.select.selectedIndex].value;
+
+}
+
+</script>
+
+
+
+
+<p>&nbsp;</p>
+<p class="style1"> <img src="img20.jpg" alt="" width="100" height="80"/> Life<span class="style2">Graf<span style="font-size: 28px">  </span></span><span style="width:914px; text-align:center; font-size: 28px; margin:0 auto 0;"></span></p>
+<div style="margin:0 auto 0; width:914px; text-align:right;"><a class="toplink" href="http://www4.ncsu.edu/~harora/lifegraf/">Visualization</a><a class="toplink" href="http://www4.ncsu.edu/~harora/lifegraf/visualization.html?commodity=nike" >HeatMap</a><a  class="toplink" href="http://www4.ncsu.edu/~harora/lifegraf/countrydata.html?country=CA">Data</a></div>
+
+<br/>
+<div class="style3">
+<div id="commoditymap"></div>
+
+<br />
+		
+	<form>
+		<div align="right">
+		<div style="width:200px;text-align:left;">
+		Select a commodity<br />
+<select NAME="select" onchange="loadPage(this.form)" style="padding:5px; background:#EFEFEF; font: 20px Verdana; color: #999; ">
+<option  value="">-------</option>
+<option  value="rent">Monthly Rent</option>
+<option value="transport">Local Transport</option>
+<option value="utility">Utilities</option>
+<option value="nike">Pair of Nike Shoes</option>
+<option value="cinema">Cinema Ticket</option>
+</select>
+</div>
+</div>
+</form>
+
+
+<br />
+<br />
+<br />
+<br />
+<div style="width:914px; margin:0 auto 0; font-size:18px; font-family:calibri; color:#aaa; text-align:right;">
+
+© 2011 LifeGraf | <a style="color:#069" href="about.html">About Us</a>
+
+
+</div>
+
+</div>
+
+</body>
+
+</html>

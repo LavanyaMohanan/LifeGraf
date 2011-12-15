@@ -1,0 +1,195 @@
+﻿<html><head>
+    <script type="text/javascript" src="./lib/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="./lib/jquery.jcarousel.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./skins/tango/skin.css">
+    <link rel="stylesheet" type="text/css" href="./mystyle.css">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+    <script type="text/javascript" src="contianerMap.js"></script>
+    <script type="text/javascript" src="http://visapi-gadgets.googlecode.com/svn/trunk/pilesofmoney/pom.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.mycarousel').fadeOut();
+            $('.mycarousel2').fadeOut();
+            selectObject('beer',$('beer_select'));
+            selectCommodity('shoe',$('shoe_select'));
+            fillCommodityContainer($('.commodity_container .display_container'));
+            drawNumericGraph($('.object_container .display_container'));
+
+        });
+    </script>
+    
+    
+    
+    
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script type="text/javascript">
+       var country_beh_div;
+
+       google.load('visualization', '1', {'packages': ['geomap']});
+       google.setOnLoadCallback(drawMap);
+
+        function drawMap() {
+          var data = new google.visualization.DataTable();
+          data.addRows(6);
+          data.addColumn('string', 'Country');
+          data.setValue(0, 0, 'Germany');
+          data.setValue(1, 0, 'United States');
+          data.setValue(2, 0, 'Brazil');
+          data.setValue(3, 0, 'Canada');
+          data.setValue(4, 0, 'France');
+          data.setValue(5, 0, 'RU');
+          
+          var options = {};
+          options['dataMode'] = 'markers';
+          options['width']=556;
+          options['height']=347;
+          var container = document.getElementById('map_canvas');
+          var geomap = new google.visualization.GeoChart(container);
+
+          google.visualization.events.addListener(geomap, 'select', function(){
+              geomap.setSelection(geomap.getSelection());
+              var selection = geomap.getSelection();
+              $(country_beh_div).find('.country_name').text(data.getValue(selection[0].row,0));
+              hideCountryMap();
+          });
+
+          geomap.draw(data, options);
+          $('.country_select').hide();
+
+      };
+
+      function showCountryMap(country_div){
+          country_beh_div=country_div;
+          var country_div=$('.country_select');
+          var main_container=$('.main_container');
+          country_div.css("position","absolute");
+          country_div.css("top", (($(main_container).outerHeight() - country_div.outerHeight()) / 2) + main_container.position().top + "px");
+          country_div.css("left", (($(main_container).outerWidth() - country_div.outerWidth()) / 2) + main_container.position().left +"px");
+
+          $(main_container).fadeTo('slow',.2);
+          $(country_div).show();
+      };
+
+
+      function hideCountryMap(){
+          country_beh_div=null;
+          var country_div=$('.country_select');
+          var main_container=$('.main_container');
+          $(country_div).hide();
+          $(main_container).fadeTo('slow',1);
+      };
+          
+    </script><script src="https://www.google.com/uds/?file=visualization&amp;v=1&amp;packages=geomap" type="text/javascript"></script><script src="https://www.google.com/uds/api/visualization/1.1/de733a01a96c1401b1bd3e398f10d01c/format+en,default,geomap.I.js" type="text/javascript"></script><script src="https://www.google.com/uds/?file=visualization&amp;v=1&amp;packages=geomap" type="text/javascript"></script><script src="https://www.google.com/uds/api/visualization/1.1/de733a01a96c1401b1bd3e398f10d01c/format+en,default,geomap.I.js" type="text/javascript"></script><script src="https://www.google.com/uds/api/visualization/1.1/de733a01a96c1401b1bd3e398f10d01c/format+en,default,geomap.I.js" type="text/javascript"></script><script src="https://www.google.com/uds/?file=visualization&amp;v=1&amp;packages=geomap" type="text/javascript"></script><script src="https://www.google.com/uds/api/visualization/1.1/de733a01a96c1401b1bd3e398f10d01c/format+en,default,geomap.I.js" type="text/javascript"></script><script src="https://www.google.com/uds/api/visualization/1.1/de733a01a96c1401b1bd3e398f10d01c/format+en,default,geomap.I.js" type="text/javascript"></script><script src="https://www.google.com/uds/api/visualization/1.1/de733a01a96c1401b1bd3e398f10d01c/format+en,default,geomap.I.js" type="text/javascript"></script>
+
+    
+    <title></title>
+<script type="text/javascript" src="http://www.gstatic.com/charts/regioncoder/0/geocodes/countries_en.js"></script><script type="text/javascript" src="http://www.gstatic.com/charts/regioncoder/0/geocodes/countries_en.js"></script><script type="text/javascript" src="http://www.gstatic.com/charts/regioncoder/0/geocodes/countries_en.js"></script></head>
+<body>
+
+<p>&nbsp;</p>
+<p class="style1"> <img src="img20.jpg" alt="" width="100" height="80"/> Life<span class="style2">Graf<span style="font-size: 28px">  </span></span><span style="width:914px; text-align:center; font-size: 28px; margin:0 auto 0;"></span></p>
+<div style="margin:0 auto 0; width:914px; text-align:right;"><a class="toplink" href="http://www4.ncsu.edu/~harora/lifegraf/">Visualization</a><a class="toplink" href="http://www4.ncsu.edu/~harora/lifegraf/visualization.html?commodity=nike" >HeatMap</a><a  class="toplink" href="http://www4.ncsu.edu/~harora/lifegraf/countrydata.html?country=CA">Data</a></div>
+
+<br>
+<div style="width:914px; text-align:center; font-size:38px; margin:0 auto 0;"></div>
+
+<div class="tool" style="margin-top:70px;">
+      <div class="main_container" style="width: 100%; margin: 0 auto 0;">
+              <div style="width: 1003px;margin: 0 auto 0;">
+                    <div class="commodity_container" style="width: 35%;float: left;">
+                        
+                        <div style="display:inline-block;">
+                                <div class="display_container" style="width: 200px;height: 200px;  border:none;background: url(./image/circle.png) center no-repeat; background-size:200px;  " onClick="$('.mycarousel2').show();" onMouseOver="$('.mycarousel2').show();" onMouseOut="hidecarousel2();"><a href="visualization.html?commodity=nike"><img src="./image/shoe.png" width="200" height="200"></a></div>
+                        </div>
+
+                            <div style="font-size: 72px ; width: 100px;padding: 60px 0 0 0;float: right;"> &nbsp;in 
+                                                            <select name="select" onChange="updateSelectedCountry_1($(this).val())" style="padding:5px; background:#EFEFEF; font: 20px Verdana; color: #999; ">
+                                    <option value="CA">Canada</option>
+                                    <option value="CN">China</option>
+                                    <option value="IN">India</option>
+                                    <option value="US">USA</option>
+                                    <option value="GB">UK</option>
+                                </select>
+
+                            </div>
+
+                        <div>
+                        <ul class="mycarousel2" style="display: none; ">
+                           <li id="rent_select"><a onClick="selectCommodity('rent',$(this).parent());fillCommodityContainer($('.commodity_container .display_container'));drawNumericGraph($('.object_container .display_container'));" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/rent.jpg" width="45" height="45" alt=""></a></li>
+                           <li id="transport_select"><a onClick="selectCommodity('transport',$(this).parent());fillCommodityContainer($('.commodity_container .display_container'));drawNumericGraph($('.object_container .display_container'));" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/public_transportation.png" width="45" height="45" alt=""></a></li>
+                           <li id="utility_select"><a onClick="selectCommodity('utility',$(this).parent());fillCommodityContainer($('.commodity_container .display_container'));drawNumericGraph($('.object_container .display_container'));" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/utility.jpg" width="45" height="45" alt=""></a></li>
+                           <li id="shoe_select"><a onClick="selectCommodity('shoe',$(this).parent());fillCommodityContainer($('.commodity_container .display_container'));drawNumericGraph($('.object_container .display_container'));" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/shoe.png" width="45" height="45" alt=""></a></li>
+                           <li id="cinema_select"><a onClick="selectCommodity('cinema',$(this).parent());fillCommodityContainer($('.commodity_container .display_container'));drawNumericGraph($('.object_container .display_container'));" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/cinema.jpg" width="45" height="45" alt=""></a></li>
+                        </ul>
+                        </div>
+                    </div>
+
+                    <div class="object_container" style="width: 65%;float: left;">
+
+                        <div>
+                            <div style="width: 0.9%;height:400px;float: left; font-size: 20px; padding: 34px 0 0 38px;">
+                                <div style="text-align:center; font-size: 125px;font: bold;color: #aaa;font-family: arial;">
+                                 =
+                                 </div>
+                            </div>
+
+      <div style="width: 531px;float: right;">
+                                <div style="display: inline-block;">
+
+                                    <div class="display_container" style="width: 400px; position: relative; height: 170px; " onClick="$('.mycarousel2').show();" onMouseOver="$('.mycarousel').show();" onMouseOut="hidecarousel1();"><div style="padding: 35px 0 0 49px; font-size: 88px"> 30 x [<img src="./image/beer.png" width="75" height="75/">] </div></div>
+
+                                    <div style="width: 415px;height: 40px;">
+                                        <div class="unselected_graph_type graph_type image_graph_label" style="
+    font: 16px calibri;
+">
+                                            <a onClick="displayImageGraph($('.object_container .display_container'),$(this));" href="javascript:void(0);">&nbsp; &nbsp; Image &nbsp; &nbsp;</a>
+                                        </div>
+                                        <div class="graph_type numeric_graph_label unselected_graph_type selected_graph_type" style="
+    font: 16px calibri;
+">
+                                            <a onClick="displayNumericGraph($('.object_container .display_container'),$(this));" href="javascript:void(0);">&nbsp; &nbsp; Numeric &nbsp; &nbsp;</a>
+                                        </div>
+                                        <div style="clear: both;"></div>
+                                    </div>
+
+                                </div>
+
+                                <div style="font-size: 72px ; width: 100px;padding: 60px 0 0 0;float: right;"> in                                     <select name="select" onChange="updateSelectedCountry_2($(this).val())" style="padding:5px; background:#EFEFEF; font: 20px Verdana; color: #999; float: right;">
+                                        <option value="US">USA</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="CN">China</option>
+                                        <option value="IN">India</option>
+                                        <option value="GB">UK</option>
+                                    </select>
+
+                                
+                                </div>
+
+
+                                                            <ul class="mycarousel" style="display: none; ">
+                                                                <li id="coke_select"><a onClick="selectObject('coke',$(this).parent());drawNumericGraph($('.object_container .display_container'));" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/coke.png" width="75" height="75" alt=""></a></li>
+                                                                <li id="milk_select"><a onClick="selectObject('milk',$(this).parent());drawNumericGraph($('.object_container .display_container'));" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/milk.png" width="75" height="75" alt=""></a></li>
+                                                                <li id="burger_select" class=""><a onClick="selectObject('burger',$(this).parent());drawNumericGraph($('.object_container .display_container'));" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/burger.png" width="75" height="75" alt=""></a></li>
+                                                                <li id="bread_select" class="selected"><a onClick="selectObject('bread',$(this).parent());drawNumericGraph($('.object_container .display_container'));" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/bread.png" width="75" height="75" alt=""></a></li>
+                                                                <li id="beer_select"><a onClick="selectObject('beer',$(this).parent());drawNumericGraph($('.object_container .display_container'));" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/domestic_burger.jpg" width="75" height="75" alt=""></a></li>
+                                                             </ul>
+
+                            </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    <div style="clear: both;"></div>
+                </div>
+        </div>
+<div style="width:914px; margin:0 auto 0; font-size:18px; font-family:calibri; color:#aaa; text-align:right;">
+
+© 2011 LifeGraf | <a style="color:#069" href="about.html">About Us</a>
+
+
+</div>
+</div>
+
+    
+
+
+</body></html>

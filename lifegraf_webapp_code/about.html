@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="./style.css">
+<title>LifeGraf</title>
+
+
+</head>
+
+ <script type="text/javascript">
+
+function loadPage(form) {
+
+  var redirUrl = "visualization.html?commodity=";
+  location.href=redirUrl + form.select.options[form.select.selectedIndex].value;
+
+}
+
+</script>
+
+<body>
+
+<p class="style1"> <img src="img20.jpg" alt="" width="100" height="80"/> Life<span class="style2">Graf<span style="font-size: 28px">  </span></span><span style="width:914px; text-align:center; font-size: 28px; margin:0 auto 0;"></span></p>
+<div style="margin:0 auto 0; width:914px; text-align:right;"><a class="toplink" href="http://www4.ncsu.edu/~harora/lifegraf/">Visualization</a><a class="toplink" href="http://www4.ncsu.edu/~harora/lifegraf/visualization.html?commodity=nike" >HeatMap</a><a  class="toplink" href="http://www4.ncsu.edu/~harora/lifegraf/countrydata.html?country=CA">Data</a></div>
+
+<div class="style3">
+<center><img alt="" src="img20.jpg"/></center>
+<br />
+
+<form>
+		<div align="center">
+		<div style="width:200px;text-align:left;"><br />
+		</div>
+</div>
+</form>
+
+<p>LifeGraf is a tool for visualizing and comparing the prices of various commodities across different countries. Financial information has been characterised by many complexities like variations over a period of time, exchange rates between countries, normalizing different data indices and valid relevance across various commodities. Hence analysis of financial data is quite a deal for someone who doesn’t want to get into some complicated calculations. <br/>
+  <br/>
+  Visualization of financial data is quite important so as to support effective analysis. The scope of analysis provided by this tool involves a comparison of personal finances for an individual across different countries in much simplified way.
+  
+  <span class="style4"><strong>LifeGraf </strong></span>
+  
+  The dataset used for LifeGraf is derived from <a href="http://www.numbeo.com"></a>. Numbeo has the world’s largest database about the cost of living of various cities worldwide. However it just only shows standard visualization for its data source. Hence we conceptualized on visualising this information in totally new sort of interface which would not only convey the information but also was pretty fun to look at.
+  <br/>
+  
+  To extract the data from Numbeo, we implemented data scrapping script in Java. This script helped us to extract the data to provide usable content.  As we studied the dataset, we realized that we needed a visual that could help user understand the data in the simplest manner. Following the feedback from discussion with the class and professor, we decided on using an interactive visualization with pictorial visuals. We used images of basic commodities for better understanding.  
+  
+  <span class="style4"><strong>Working </strong></span>
+  For working, the tool expects user to enter his home country and the country whose commodity prices he wants to compare. User is also provided with a list of basic commodities of his country and a list of commodities for comparison in the foreign country. The user now clicks on the images of commodities in both countries and sees the visuals which present a comparison to him. The tool also has two windows for comparison: one which presents the image of basic commodity actually replicated in numbers and the second which gives the equivalent numeric value of the commodity.
+  <br/><br/>
+  Financial data, in general, tends to be quite complex and difficult to understand. LifeGraf was conceptualised and developed to ease this perplex view of financial data by providing some reference index for a common user. The tool has quite a potential to be used widely if properly extended and supported.
+  <span class="style4"><strong>word of Thanks</strong></span>
+  We would like to thank Dr.Watson for providing us with proper guidance and feedback  for the project. Also the presentation panel consisting of Clayton Coleman, Bill Houghteling and Prof. Patrick Fitzgerald found our visualization very interesting and provided us with their valuable feedback which we have implemented.
+  
+  <span class="style4"><strong>Team</strong></span>
+  Himanshu Arora<br />
+</p>
+<p>Vivek Dodeja</p>
+<p>Lavanya Mohanan</p>
+<p>  <br />
+</p>
+<div class="footer">© 2011 LifeGraf</div>
+
+<p>&nbsp;</p>
+</div>
+
+</body>
+
+</html>

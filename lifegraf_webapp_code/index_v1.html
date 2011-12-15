@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <script type="text/javascript" src="./lib/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="./lib/jquery.jcarousel.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./skins/tango/skin.css" />
+    <link rel="stylesheet" type="text/css" href="./mystyle.css" />
+    <script type="text/javascript" src="contianerMap.js"></script>
+    <script type="text/javascript" src="http://visapi-gadgets.googlecode.com/svn/trunk/pilesofmoney/pom.js"></script>
+
+
+    
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+      <script type='text/javascript'>
+       var country_beh_div;
+
+       google.load('visualization', '1', {'packages': ['geomap']});
+       google.setOnLoadCallback(drawMap);
+
+        function drawMap() {
+          var data = new google.visualization.DataTable();
+          data.addRows(6);
+          data.addColumn('string', 'Country');
+          data.setValue(0, 0, 'Germany');
+          data.setValue(1, 0, 'United States');
+          data.setValue(2, 0, 'Brazil');
+          data.setValue(3, 0, 'Canada');
+          data.setValue(4, 0, 'France');
+          data.setValue(5, 0, 'RU');
+          
+          var options = {};
+          options['dataMode'] = 'markers';
+          options['width']=556;
+          options['height']=347;
+          var container = document.getElementById('map_canvas');
+          var geomap = new google.visualization.GeoChart(container);
+
+          google.visualization.events.addListener(geomap, 'select', function(){
+              geomap.setSelection(geomap.getSelection());
+              var selection = geomap.getSelection();
+              $(country_beh_div).find('.country_name').text(data.getValue(selection[0].row,0));
+              hideCountryMap();
+          });
+
+          geomap.draw(data, options);
+          $('.country_select').hide();
+
+      };
+
+      function showCountryMap(country_div){
+          country_beh_div=country_div;
+          var country_div=$('.country_select');
+          var main_container=$('.main_container');
+          country_div.css("position","absolute");
+          country_div.css("top", (($(main_container).outerHeight() - country_div.outerHeight()) / 2) + main_container.position().top + "px");
+          country_div.css("left", (($(main_container).outerWidth() - country_div.outerWidth()) / 2) + main_container.position().left +"px");
+
+          $(main_container).fadeTo('slow',.2);
+          $(country_div).show();
+      };
+
+
+      function hideCountryMap(){
+          country_beh_div=null;
+          var country_div=$('.country_select');
+          var main_container=$('.main_container');
+          $(country_div).hide();
+          $(main_container).fadeTo('slow',1);
+      };
+          
+    </script>
+
+    
+    <title></title>
+</head>
+<body>
+    <div class="tool">
+        <div class="header">
+                <div style="float: left;width: 50%;">
+                    <center>
+                        <div></div>
+                        <div>
+                        <ul class="mycarousel2">
+                           <li><a onclick="selectCommodity('rent',$(this).parent());fillContainer($('.object_container'),event);" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/rent.jpg" width="75" height="75" alt="" /></a></li>
+                           <li><a onclick="selectCommodity('transport',$(this).parent());fillContainer($('.object_container'),event);" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/public_transportation.png" width="75" height="75" alt="" /></a></li>
+                           <li><a onclick="selectCommodity('utility',$(this).parent());fillContainer($('.object_container'),event);" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/utility.jpg" width="75" height="75" alt="" /></a></li>
+                           <li><a onclick="selectCommodity('shoe',$(this).parent());fillContainer($('.object_container'),event);" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/shoe.png" width="75" height="75" alt="" /></a></li>
+                           <li><a onclick="selectCommodity('cinema',$(this).parent());fillContainer($('.object_container'),event);" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/cinema.jpg" width="75" height="75" alt="" /></a></li>
+                        </ul>
+                        </div>
+                        <div></div>
+                    </center>
+               </div>
+
+               <div style="float: right;width: 50%;">
+                   <center>
+                       <div></div>
+                       <div>
+                        <ul class="mycarousel">
+                           <li><a onclick="selectObject('coke',$(this).parent());fillContainer($('.object_container'),event);" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/coke.png" width="75" height="75" alt="" /></a></li>
+                           <li><a onclick="selectObject('milk',$(this).parent());fillContainer($('.object_container'),event);" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/milk.png" width="75" height="75" alt="" /></a></li>
+                           <li><a onclick="selectObject('burger',$(this).parent());fillContainer($('.object_container'),event);" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/burger.png" width="75" height="75" alt="" /></a></li>
+                           <li><a onclick="selectObject('bread',$(this).parent());fillContainer($('.object_container'),event);" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/bread.png" width="75" height="75" alt="" /></a></li>
+                           <li><a onclick="selectObject('beer',$(this).parent());fillContainer($('.object_container'),event);" href="javascript:void(0)" style="text-decoration: none;"><img src="./image/domestic_burger.jpg" width="75" height="75" alt="" /></a></li>
+                        </ul>
+                       </div>
+                       <div></div>
+                    </center>
+
+               </div>
+
+               <div style="clear: both;">
+               </div>
+        </div>
+
+        <div class="main_container" style="width: 100%;">
+                <div style="width: 100%;">
+                    <div style="width: 50%;float: left;">
+                        <div>
+                            <div style="width: 100%;">
+                                <center>
+                                    <b>
+                                        <span class="country_name"></span>
+                                    </b>
+                                    (Home Country)
+                                </center>
+                            </div>
+                            <select>
+                                <option>BMW</option>
+                                <option>Transport</option>
+                                <option>Utilities</option>
+                                <option>Shoe</option>
+                                <option>Cinema Ticket</option>
+                            </select>
+                            <button onclick="showCountryMap($(this).parent());" value="Select Home Country">Select Country</button>
+                        </div>
+                        <center>
+                            <div class="object_container" style="width: 400px;height: 400px;position: relative;">
+
+                            </div>
+                        </center>
+                    </div>
+                    <div style="width: 50%;float: left;">
+                        <div>
+                            <div style="width: 100%;">
+                                <center>
+                                    <b><span class="country_name"></span></b>(Other Country)
+                                </center>
+                            </div>
+                            <select>
+                                <option>Coke</option>
+                                <option>Milk</option>
+                                <option>Burger</option>
+                                <option>Bread</option>
+                                <option>Beer</option>
+                            </select>
+                            <button onclick="showCountryMap($(this).parent());" value="Select Foriegn Country">Select Country</button>
+                        </div>
+                        <center>
+                            <div class="object_container" style="width: 400px;height: 400px;position: relative;">
+
+                            </div>
+                        </center>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+        </div>
+
+    </div>
+
+    <div class="country_select">
+            <div style="width: 100%;background: #D4D0C8">
+                <div style="float: left;">
+                    Select Country
+                </div>
+                <div style="float: right;">
+                <button onclick="hideCountryMap()">X</button>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div id="map_canvas"></div>
+
+    </div>
+
+</body>
+</html>

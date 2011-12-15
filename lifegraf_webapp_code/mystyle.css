@@ -1,0 +1,90 @@
+body .header{
+    height: 100px;
+    width: 100%;
+}
+
+ul.mycarousel li{
+     border: 1px solid #EEEEEE;
+     display: block;
+     float: left;
+     margin: 0;
+     overflow: hidden;
+     padding: 10px;
+}
+
+ul.mycarousel{
+    text-align: center;
+}
+
+ul.mycarousel2 li{
+     border: 1px solid #EEEEEE;
+     display: block;
+     float: left;
+     margin: 0;
+     overflow: hidden;
+     padding: 10px;
+}
+
+ul.mycarousel2{
+    text-align: center;
+}
+
+table.mycarousel2 tr{
+    border: 2px solid #EEEEEE;
+    border-bottom: none;
+    float: left;
+    width: 2000px;
+}
+
+table.mycarousel2 td{
+    border: 2px solid #EEEEEE;
+    border-bottom: none;
+    float: left;
+    width: 200px;
+}
+
+table.mycarousel2{
+    border: 2px solid #EEEEEE;
+    height: 200px;
+    width: 200px;
+    display: block;
+    overflow-y: auto;
+    overflow-x:hidden;
+    border-collapse:collapse;
+}
+
+
+img{
+    border: 0px;
+}
+
+.display_container{
+    margin-top: 5px;
+    padding: 5px;
+    padding-top: -30px;
+}
+
+.main_container{
+    margin-top: 20px;
+}
+
+.selected{
+    background-color: #D4D0C8;
+}
+
+.country_select{
+    border: #D4D0C8 solid medium;
+}
+
+.selected_graph_type{
+    float: right;
+}
+
+.unselected_graph_type{
+    float: right;
+    border-top: none;
+}
+
+a{
+    text-decoration: none;
+}

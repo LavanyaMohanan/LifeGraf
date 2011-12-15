@@ -1,0 +1,54 @@
+body .header{
+    height: 100px;
+    width: 100%;
+}
+
+ul.mycarousel li{
+     border: 1px solid #EEEEEE;
+     display: block;
+     float: left;
+     margin: 0;
+     overflow: hidden;
+     padding: 10px;
+}
+
+ul.mycarousel{
+    text-align: center;
+}
+
+ul.mycarousel2 li{
+     border: 1px solid #EEEEEE;
+     display: block;
+     float: left;
+     margin: 0;
+     overflow: hidden;
+     padding: 10px;
+}
+
+ul.mycarousel2{
+    text-align: center;
+}
+
+img{
+    border: 0px;
+}
+
+.display_container{
+    margin-top: 5px;
+    padding: 5px;
+    padding-top: -30px;
+    background-color: #ffffff;
+}
+
+.main_container{
+    margin-top: 20px;
+    background-color: #EEEEEE;
+}
+
+.selected{
+    background-color: #D4D0C8;
+}
+
+.country_select{
+    border: #D4D0C8 solid medium;
+}

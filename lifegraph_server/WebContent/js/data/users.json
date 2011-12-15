@@ -1,0 +1,7 @@
+{
+    success: true,
+    users: [
+        {id: 1, name: 'Amit Sidhpura',    email: 'amit@extjsframework.com'},
+        {id: 2, name: 'Ishan Nanavati', email: 'ishan@extjsframework.com'}
+    ]
+}
